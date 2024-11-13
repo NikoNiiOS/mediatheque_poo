@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notre livre, notre média</title>
+</head>
+
+<body>
+    <h1>Notre Livre, notre média</h1>
+    
+    <h2>{{media.name}}</h2>
+    {% if media.book %}
+    <p>Auteur: {{ media.book.auteur }}</p>
+    {% elif media.dvd %}
+    <p>Réalisateur: {{ media.dvd.realisateur }}</p>
+    {% elif media.cd %}
+    <p>Artiste: {{ media.cd.artiste }}</p>
+    {% endif %}
+    
+    {% if media.disponible %}
+        <a href="{% url 'borrowing_media' media.id %}">Emprunter</a>
+    {% else %}
+        <a href="{% url 'borrowing_media' media.id %}">Rapporter</a>
+    {% endif %}
+    <a href="{% url 'media' %}">Retour à la liste des medias</a>
+    
+</body>
+
+</html>

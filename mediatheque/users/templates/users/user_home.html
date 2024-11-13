@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notre livre, notre média</title>
+</head>
+
+<body>
+    <h1>Notre Livre, notre média</h1>
+    
+    <h2>Liste des medias</h2>
+    <h3>Livres</h3>
+    {% for book in books %}
+    <ul>
+        <li>{{book.name}}</li>
+    </ul>
+    {% endfor %}
+    <h3>DVD</h3>
+    {% for dvd in dvds %}
+    <ul>
+        <li>{{dvd.name}}</li>
+    </ul>
+    {% endfor %}
+    <h3>CD</h3>
+    {% for cd in cds %}
+    <ul>
+        <li>{{cd.name}}</li>   
+    </ul>
+    {% endfor %}
+    <h3>Jeux</h3>
+    {% for jeu in jeux %}
+    <ul>
+        <li>{{jeu.name}}</li>
+    </ul>
+    {% endfor %}
+    <a href="{% url 'logout' %}">Se déconnecter</a></p>
+</body>
+
+</html>

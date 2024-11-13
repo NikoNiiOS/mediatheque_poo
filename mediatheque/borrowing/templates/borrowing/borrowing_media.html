@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notre livre, notre média</title>
+</head>
+
+<body>
+    <h1>Notre Livre, notre média</h1>
+    {% if media.disponible %}
+    <h2>Êtes-vous sûr de vouloir emprunter {{media.name}} ?</h2>
+    <form action="" method="post">
+        {% csrf_token %}
+        <p>Membre</p>
+        {{ form.as_p }}
+        <button type="submit">Emprunter</button>
+    </form>
+    {% else %}
+    <h2>Êtes-vous sûr de vouloir rapporter {{media.name}} ?</h2>
+    <form action="" method="post">
+        {% csrf_token %}
+        <p>Membre</p>
+        {{ form.as_p }}
+        <button type="submit">Rapporter</button>
+    </form>
+    {% endif %}
+</body>
+
+</html>
